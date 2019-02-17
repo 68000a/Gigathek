@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.module.libkika" name="libkika" version="2.0.1" provider-name="68000a">
+<addon id="script.module.libkika" name="libkika" version="2.0.2" provider-name="68000a">
   <requires>
     <import addon="xbmc.python" version="2.25.0" />
     <import addon="script.module.libmediathek3" version="1.5.3"/>
@@ -8,7 +8,7 @@
   <extension point="xbmc.addon.metadata">
     <platform>all</platform>
     <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-    <source>https://github.com/prof-membrane/script.module.libkika</source>
+    <source>https://github.com/68000a/Gigathek/tree/master/code/script.module.libkika</source>
     <summary lang="en">This is a scraper for the KiKa Mediathek (http://www.kika.de).</summary>
     <description lang="en">This is a scraper for the KiKa Mediathek (http://www.kika.de).</description>
   </extension>

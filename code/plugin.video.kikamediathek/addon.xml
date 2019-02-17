@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.kikamediathek" name="KiKa Mediathek" version="2.0.1" provider-name="68000a">
+<addon id="plugin.video.kikamediathek" name="KiKa Mediathek" version="2.0.2" provider-name="68000a">
     <requires>
         <import addon="xbmc.python" version="2.25.0"/>
-		<import addon="script.module.libkika" version="2.0.1"/>
+		<import addon="script.module.libkika" version="2.0.2"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -11,7 +11,7 @@
         <platform>all</platform>
 		<language>de</language>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-		<source>https://github.com/prof-membrane/plugin.video.kikamediathek</source>
+		<source>https://github.com/68000a/Gigathek/tree/master/code/plugin.video.kikamediathek</source>
         <summary lang="en">This is an add-on for http://www.kika.de/.</summary>
         <description lang="en">This add-on provides access to the German VOD platform http://www.kika.de/.</description>
         <summary lang="de">Videos aus dem Kinderkanal von ARD und ZDF.</summary>
