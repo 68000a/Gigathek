@@ -1,0 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC Main\n"
+
+msgctxt "#30000"
+msgid "General"
+msgstr "General"
+
+msgctxt "#30001"
+msgid "Language"
+msgstr "Language"
+
+msgctxt "#30002"
+msgid "de"
+msgstr "de"
+
+msgctxt "#30003"
+msgid "fr"
+msgstr "fr"
