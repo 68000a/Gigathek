@@ -73,6 +73,14 @@ def populateDirDate(mode,channel=False,dateChooser=False):
 		d['yyyymmdd'] = day.strftime('%Y-%m-%d')
 		l.append(d)
 		i += 1
+
+	if dateChooser:
+		d = {}
+		d['mode'] = mode
+		d['_type'] = 'dir'
+		if channel: d['channel'] = channel
+		d['name'] = getTranslation(31022)
+		l.append(d)
 		
 	return l
 	
