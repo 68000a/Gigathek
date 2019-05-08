@@ -138,3 +138,19 @@ msgstr "Archive"
 msgctxt "#31042"
 msgid "Detailed search"
 msgstr "Detailed search"
+
+msgctxt "#31043"
+msgid "Last Chance"
+msgstr "Last Chance"
+
+msgctxt "#31044"
+msgid "Most Recent"
+msgstr "Most Recent"
+
+msgctxt "#31045"
+msgid "Audio Description"
+msgstr "Audio Description"
+
+msgctxt "#31046"
+msgid "Highlights"
+msgstr "Highlights"
