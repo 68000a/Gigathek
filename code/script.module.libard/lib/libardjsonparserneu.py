@@ -78,14 +78,14 @@ def getVideoUrl(url):
 		for widget in player_widgets:
 			if result: break
 			mediaCollection = deep_get(widget, 'mediaCollection.embedded.streams')
-			result = extract (mediaCollection)
+			result = extract (mediaCollection, widget.get('binaryFeatures', None))
 			if not result:
 				mediaCollection = deep_get(widget, 'mediaCollection.embedded._mediaArray')
-				result = extract (mediaCollection)
+				result = extract (mediaCollection, widget.get('binaryFeatures', None))
 				if not result:
 					mediaCollection = deep_get(widget, 'mediaCollection.embedded._alternativeMediaArray')
 					if mediaCollection and isinstance(mediaCollection,list) and isinstance(mediaCollection[0],dict):
-						result = extract (mediaCollection[0].get('_mediaArray', []))
+						result = extract (mediaCollection[0].get('_mediaArray', []), widget.get('binaryFeatures', None))
 	return result
 
 
@@ -155,21 +155,21 @@ def getVideoUrlHtml(url):
 	return None
 
 
-def extract(mediaCollection): 
+def extract(mediaCollection, binaryFeatures = None): 
 	if mediaCollection and isinstance(mediaCollection,list) and isinstance(mediaCollection[0],dict):
 		mainMediacollection = list(filter(lambda x: x.get('kind', None) == 'main', mediaCollection))
 		if mainMediacollection:
-			return extractBestQuality(mainMediacollection[0].get('media',[]), lambda x: None if isinstance(x,list) else x)
+			return extractBestQuality(mainMediacollection[0].get('media',[]), lambda x: None if isinstance(x,list) else x, binaryFeatures)
 		else:
-			return extractBestQuality(mediaCollection[0].get('_mediaStreamArray',[]), lambda x: None if isinstance(x,list) else x)
+			return extractBestQuality(mediaCollection[0].get('_mediaStreamArray',[]), lambda x: None if isinstance(x,list) else x, binaryFeatures)
 	return None
 
 
-def extractBestQuality(all_streams, fnGetFinalUrl):
+def extractBestQuality(all_streams, fnGetFinalUrl, binaryFeatures = None):
 	if all_streams:
 		streams = all_streams if len(all_streams) == 1 else filter(
 			lambda x: None is not next(
-				(y for y in x.get('audios',[{}]) if y.get('kind','standard')=='standard' and y.get('languageCode','deu')=='deu')
+				(y for y in x.get('audios',[{}]) if y.get('kind','standard')==('audio-description' if (binaryFeatures and binaryFeatures[0] == 'AD') else 'standard') and y.get('languageCode','deu')=='deu')
 				,None
 			),all_streams
 		) 

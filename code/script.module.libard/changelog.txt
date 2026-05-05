@@ -1,4 +1,8 @@
-﻿5.1.48
+﻿5.1.49
+- Die automatische Stream-Auswahl verwendet bei Medien mit explizit
+  ausgewiesener Audio-Despription ab jetzt den korrekten Stream mit 
+  Audio-Despription. Dies betrifft sowohl Abspielen als auch Download.
+5.1.48
 - Use https instead of http
 5.1.47
 - Streams mit Audio-Deskription bei der automatischen Stream-Auswahl vermeiden
