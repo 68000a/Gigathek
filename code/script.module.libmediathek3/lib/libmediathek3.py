@@ -179,6 +179,7 @@ def ShowSeekPos(player, url):
 	now = time.mktime(datetime.now().timetuple())	# Unix-Format 1489094334.0
 	now_dt = datetime.fromtimestamp(int(now))
 	start_time = now_dt.strftime("%H:%M:%S")
+	playing_file = None
 
 	# Maximal 10 Sekunden bis sich der Player initialisiert hat (Raspi, empirisch)
 	i = 0
@@ -188,6 +189,7 @@ def ShowSeekPos(player, url):
 		if player.isPlaying():
 			total_time = int(player.getTotalTime())	# sec, float -> int, max. Puffergröße
 			if total_time > 0:
+				playing_file = player.getPlayingFile()
 				break
 		i += 1
 
@@ -199,7 +201,7 @@ def ShowSeekPos(player, url):
 
 	while not monitor.waitForAbort(1):
 		xbmc.sleep(100)
-		if player.isPlaying():
+		if player.isPlaying() and player.getPlayingFile() == playing_file:
 			total_time = int(player.getTotalTime())	# total_time könnte sich geändert haben!
 			try:
 				play_time = int(player.getTime())	# akt. Pos im Puffer (0=Pufferstart)

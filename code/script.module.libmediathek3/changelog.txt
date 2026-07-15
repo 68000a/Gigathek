@@ -1,4 +1,6 @@
-﻿1.5.40
+﻿1.5.41
+- Kleiner Bugfix für Anzeige der Livestream-Position bei Wechsel des abgespielten Mediums während der Wiedergabe
+1.5.40
 - Schönheitskorrektur bei Anzeige der Livestream-Position
 1.5.39
 - Der Bugfix aus Version 1.5.38 wurde nochmals verbessert
