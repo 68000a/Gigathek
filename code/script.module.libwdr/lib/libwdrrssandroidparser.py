@@ -9,7 +9,7 @@ base = 'https://www1.wdr.de'
 
 def parseShows(letter):
 	l = []
-	if (letter in ('a','x','q')):
+	if (letter in ('a','p','q','x')):
 		pass
 	else:
 		response = libMediathek.getUrl(base+'/sendungen-'+letter+'-102~_variant-android.mobile')

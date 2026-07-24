@@ -1,4 +1,6 @@
-﻿1.2.14
+﻿1.2.15
+- Schönheitskorrektur
+1.2.14
 - Menüpunkt "Suche" wurde entfernt weil nicht mehr funktionsfähig
 1.2.13
 - Use https instead of http
