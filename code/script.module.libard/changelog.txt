@@ -1,4 +1,7 @@
-﻿5.1.50
+﻿5.1.51
+- Neue Option in den Addon-Einstellungen:
+  Streams mit Audio-Deskription wenn möglich ignorieren.
+5.1.50
 - Unterstützung für MPEG-DASH Streams
 5.1.49
 - Die automatische Stream-Auswahl verwendet bei Medien mit explizit

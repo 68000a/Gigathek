@@ -20,6 +20,10 @@ msgctxt "#32003"
 msgid "Ignore adaptive streams if possible"
 msgstr "Adaptive Streams wenn möglich ignorieren"
 
+msgctxt "#32004"
+msgid "Ignore audio description if possible"
+msgstr "Audio-Deskription wenn möglich ignorieren"
+
 msgctxt "#32010"
 msgid "Download settings"
 msgstr "Download Einstellungen"

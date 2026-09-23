@@ -166,10 +166,11 @@ def extract(mediaCollection, binaryFeatures = None):
 
 
 def extractBestQuality(all_streams, fnGetFinalUrl, binaryFeatures = None):
+	ignore_audio_description = libMediathek.getSettingBool('ignore_audio_description')
 	if all_streams:
 		streams = all_streams if len(all_streams) == 1 else filter(
 			lambda x: None is not next(
-				(y for y in x.get('audios',[{}]) if y.get('kind','standard')==('audio-description' if (binaryFeatures and binaryFeatures[0] == 'AD') else 'standard') and y.get('languageCode','deu')=='deu')
+				(y for y in x.get('audios',[{}]) if y.get('kind','standard')==('audio-description' if (binaryFeatures and binaryFeatures[0] == 'AD' and not ignore_audio_description) else 'standard') and y.get('languageCode','deu')=='deu')
 				,None
 			),all_streams
 		) 
