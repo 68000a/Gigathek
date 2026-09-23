@@ -188,7 +188,10 @@ def extractBestQuality(all_streams, fnGetFinalUrl, binaryFeatures = None):
 						if quality == -1:
 							quality = item.get('_quality',-1)
 						if quality == 'auto' or item.get('forcedLabel',None) == 'Auto' or item.get('isAdaptiveQualitySelectable',False):
-							media.insert(0,{'url':url.replace("index.m3u8", "master.m3u8"), 'type':'video', 'stream':'hls'})
+							if url.endswith('.m3u8') or item.get('mimeType',None) in ('application/vnd.apple.mpegurl', 'application/x-mpegurl'):
+								media.insert(0,{'url':url.replace("index.m3u8", "master.m3u8"), 'type':'video', 'stream':'hls'})
+							elif url.endswith('.mpd') or item.get('mimeType',None) == 'application/dash+xml':
+								media.insert(0,{'url':url, 'type':'video', 'stream':'dash'})
 						elif url[-4:].lower() == '.mp4':
 							try:
 								quality = int(quality)
@@ -197,7 +200,7 @@ def extractBestQuality(all_streams, fnGetFinalUrl, binaryFeatures = None):
 							else:
 								media.append({'url':url, 'type':'video', 'stream':'mp4', 'bitrate':quality})
 		ignore_adaptive = libMediathek.getSettingBool('ignore_adaptive')
-		while ignore_adaptive and len(media) > 1 and media[0]['stream'] == 'hls':
+		while ignore_adaptive and len(media) > 1 and media[0]['stream'] in ('hls', 'dash'):
 			del media[0]
 		if media:
 			return dict(media = media)
